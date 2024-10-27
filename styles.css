@@ -1,44 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
 }
 
-.card-container {
+.creditcard-container {
     display: grid;
-    grid-template-areas: 
-        "front back"
-        "submit submit";
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
-.card {
-    border-radius: 10px;
-    background-color: white;
+.card-front,
+.card-back {
+    background-color: #3E5BFF;
+    border-radius: 8px;
+    color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
-.front {
-    grid-area: front;
-    z-index: 2; /* Front card on top */
+.card-back {
+    background-color: #3E5BFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.back {
-    grid-area: back;
-    z-index: 1; /* Back card behind front */
+.card-image {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 button {
-    grid-area: submit;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #FFD700;
     border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: #333;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.card-back .strip {
+    height: 20px;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.signature {
+    border-top: 1px solid #fff;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.cvv-label,
+.cvv-number {
+    font-size: 18px;
 }
