@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card front">
+            <h2>Card Front</h2>
+            <form id="creditCardForm">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" required maxlength="16">
+                
+                <label for="cardName">Name on Card:</label>
+                <input type="text" id="cardName" required>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" required placeholder="MM/YY" maxlength="5">
+            </form>
+        </div>
+        <div class="card back">
+            <h2>Card Back</h2>
+            <label for="cvc">CVC:</label>
+            <input type="text" id="cvc" required maxlength="3">
+        </div>
+        <button type="submit" form="creditCardForm">Submit</button>
+    </div>
+</body>
+</html>

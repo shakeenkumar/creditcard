@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-container {
+    display: grid;
+    grid-template-areas: 
+        "front back"
+        "submit submit";
+    gap: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.front {
+    grid-area: front;
+    z-index: 2; /* Front card on top */
+}
+
+.back {
+    grid-area: back;
+    z-index: 1; /* Back card behind front */
+}
+
+button {
+    grid-area: submit;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
