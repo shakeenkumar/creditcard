@@ -1,92 +1,74 @@
-/* Reset styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body {
     font-family: Arial, sans-serif;
-}
-
-/* Container styles */
-.credit-card-container {
-    width: 320px;
-    margin: 50px auto;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    perspective: 1000px;
-}
-
-/* Card styling */
-.card-front, .card-back {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f3f3;
+  }
+  
+  .credit-card {
+    width: 300px;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.total-amount {
-    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-front, .card-back {
+    margin-bottom: 15px;
+  }
+  
+  .total {
     font-weight: bold;
-}
-
-.chip-icon {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .chip {
     width: 40px;
     height: 25px;
-    background-color: #ff6f00;
+    background-color: orange;
     border-radius: 4px;
-}
-
-label {
-    font-size: 14px;
-    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  label {
     display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .flex-row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .expiration input {
+    width: 40px;
+  }
+  
+  .submit-button {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-.expiry-date input[type="text"] {
-    width: 45%;
-    margin-right: 5%;
-    display: inline-block;
-    text-align: center;
-}
-
-.cvv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.submit-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
     border: none;
-    border-radius: 8px;
-    background-color: #4CAF50;
-    color: white;
+    border-radius: 4px;
     cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
-
-.card-info {
-    display: flex;
-    justify-content: space-between;
-}
-
-.card-holder, .expiry-date {
-    flex: 1;
-}
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
