@@ -10,33 +10,55 @@
 .credit-card-container {
     display: grid;
     gap: 10px;
-    width: 300px;
+    width: 320px;
     margin: 50px auto;
+    perspective: 1000px;
 }
 
-/* Card front and back styling */
+/* Card styling */
 .card-front, .card-back {
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: #d3d3d3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: grid;
     gap: 10px;
+    position: relative;
+    width: 100%;
 }
 
 .card-back {
-    position: relative;
+    margin-top: -20px;
+    background-color: #a9a9a9;
     z-index: -1;
+}
+
+/* Total amount display */
+.total-amount {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Chip icon styling */
+.chip-icon {
+    width: 40px;
+    height: 25px;
+    background-color: #ff6f00;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
 /* Label and input styling */
 label {
-    font-size: 14px;
-    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: bold;
     display: block;
+    margin-bottom: 4px;
 }
 
-input {
+input[type="text"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -44,19 +66,39 @@ input {
     font-size: 16px;
 }
 
+.expiry-date input[type="text"] {
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+}
+
 /* Button styling */
 .submit-button {
     width: 100%;
     padding: 10px;
     font-size: 18px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #fff;
     cursor: pointer;
-    text-align: center;
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #f0f0f0;
+}
+
+/* CVV styling */
+.cvv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-holder, .expiry-date {
+    flex: 1;
 }
