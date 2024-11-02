@@ -10,9 +10,6 @@
 .credit-card-container {
     width: 320px;
     margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     perspective: 1000px;
 }
 
@@ -25,8 +22,18 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: relative;
 }
 
+/* Card back behind the front */
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure back is behind front */
+}
+
+/* Card information */
 .total-amount {
     font-size: 18px;
     font-weight: bold;
@@ -64,7 +71,6 @@ input[type="text"] {
 .cvv {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .submit-button {
@@ -85,8 +91,4 @@ input[type="text"] {
 .card-info {
     display: flex;
     justify-content: space-between;
-}
-
-.card-holder, .expiry-date {
-    flex: 1;
 }
