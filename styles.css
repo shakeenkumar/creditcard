@@ -85,8 +85,10 @@ input[type="text"] {
 .card-info {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start; /* Align items at the start */
 }
 
-.card-holder, .expiry-date {
+.card-holder {
     flex: 1;
+    margin-bottom: 15px; /* Added margin for more space */
 }
