@@ -9,38 +9,40 @@
 </head>
 <body>
     <div class="credit-card-container">
-        <!-- Card Front -->
-        <div class="card-front">
-            <div class="total-amount">TOTAL: $199</div>
-            <div class="chip-icon"></div>
-            <div class="card-number">
-                <label for="card-number">CARD NUMBER</label>
-                <input type="text" id="card-number" name="card-number" maxlength="19" required placeholder="1234 5678 9101 1020">
-            </div>
-            <div class="card-info">
-                <div class="card-holder">
-                    <label for="card-holder">CARD HOLDER</label>
-                    <input type="text" id="card-holder" name="card-holder" required placeholder="John Doe">
+        <form id="credit-card-form">
+            <!-- Card Front -->
+            <div class="card-front">
+                <div class="total-amount">TOTAL: $199</div>
+                <div class="chip-icon"></div>
+                <div class="card-number">
+                    <label for="card-number">CARD NUMBER</label>
+                    <input type="text" id="card-number" name="card-number" maxlength="19" required placeholder="1234 5678 9101 1020">
                 </div>
-                <div class="expiry-date">
-                    <label for="expiry-date">EXPIRATION</label>
-                    <input type="text" id="expiry-mm" name="expiry-mm" maxlength="2" required placeholder="MM">
-                    <input type="text" id="expiry-yy" name="expiry-yy" maxlength="2" required placeholder="YY">
+                <div class="card-info">
+                    <div class="card-holder">
+                        <label for="card-holder">CARD HOLDER</label>
+                        <input type="text" id="card-holder" name="card-holder" required placeholder="John Doe">
+                    </div>
+                    <div class="expiry-date">
+                        <label for="expiry-date">EXPIRATION</label>
+                        <input type="text" id="expiry-mm" name="expiry-mm" maxlength="2" required placeholder="MM">
+                        <input type="text" id="expiry-yy" name="expiry-yy" maxlength="2" required placeholder="YY">
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Card Back -->
-        <div class="card-back">
-            <div class="cvv">
-                <label for="cvv">CVC/CVV</label>
-                <input type="text" id="cvv" name="cvv" maxlength="3" required placeholder="XXX">
+            
+            <!-- Card Back -->
+            <div class="card-back">
+                <div class="cvv">
+                    <label for="cvv">CVC/CVV</label>
+                    <input type="text" id="cvv" name="cvv" maxlength="3" required placeholder="XXX">
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Submit Button -->
-    <button type="submit" class="submit-button">Submit</button>
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
 
     <!-- Link to JavaScript file -->
     <script src="script.js"></script>

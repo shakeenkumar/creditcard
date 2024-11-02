@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const expiryMMInput = document.getElementById("expiry-mm");
     const expiryYYInput = document.getElementById("expiry-yy");
     const cvvInput = document.getElementById("cvv");
+    const form = document.getElementById("credit-card-form");
 
     // Format card number input as user types
     cardNumberInput.addEventListener("input", (e) => {
@@ -29,5 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ensure CVV is 3 digits only
     cvvInput.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/\D/g, "").substring(0, 3);
+    });
+
+    // Show thank you message on submit
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent form from submitting to the server
+        alert("Thanks for submitting!");
     });
 });
