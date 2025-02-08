@@ -1,33 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const cardNumberInput = document.getElementById("card-number");
-    const expiryMMInput = document.getElementById("expiry-mm");
-    const expiryYYInput = document.getElementById("expiry-yy");
-    const cvvInput = document.getElementById("cvv");
+document.getElementById("submit-btn").addEventListener("click", function() {
+    let cardNumber = document.getElementById("card-number").value.replace(/\s/g, '');
+    let expMonth = document.getElementById("exp-month").value;
+    let expYear = document.getElementById("exp-year").value;
+    let currentYear = new Date().getFullYear() % 100;
+    let currentMonth = new Date().getMonth() + 1;
 
-    // Format card number input as user types
-    cardNumberInput.addEventListener("input", (e) => {
-        e.target.value = e.target.value
-            .replace(/\D/g, "")                 // Remove all non-digits
-            .replace(/(.{4})/g, "$1 ")          // Insert space every 4 digits
-            .trim();                            // Remove trailing space
-    });
+    // Validate card number (must be 16 digits)
+    if (!/^\d{16}$/.test(cardNumber)) {
+        alert("Invalid card number! It must be 16 digits.");
+        return;
+    }
 
-    // Ensure MM is max 2 digits and valid month
-    expiryMMInput.addEventListener("input", (e) => {
-        e.target.value = e.target.value
-            .replace(/\D/g, "")                 // Remove non-digits
-            .substring(0, 2);                   // Limit to 2 digits
-    });
+    // Validate expiration date
+    if (expYear < currentYear || (expYear == currentYear && expMonth < currentMonth)) {
+        alert("Expired card! Please enter a valid date.");
+        return;
+    }
 
-    // Ensure YY is max 2 digits
-    expiryYYInput.addEventListener("input", (e) => {
-        e.target.value = e.target.value
-            .replace(/\D/g, "")                 // Remove non-digits
-            .substring(0, 2);                   // Limit to 2 digits
-    });
-
-    // Ensure CVV is 3 digits only
-    cvvInput.addEventListener("input", (e) => {
-        e.target.value = e.target.value.replace(/\D/g, "").substring(0, 3);
-    });
+    alert("Payment successful!");
 });
