@@ -6,20 +6,26 @@
     font-family: Arial, sans-serif;
 }
 
-/* Center container */
+/* Centering the credit card container */
 .credit-card-container {
-    width: 360px;
+    width: 350px;
     margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    perspective: 1000px;
     position: relative;
 }
 
-/* Card styling */
-.card-front, .card-back {
+/* Card Wrapper */
+.card {
+    position: relative;
     width: 100%;
+    height: 200px;
+    perspective: 1000px;
+}
+
+/* Card front and back styles */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     padding: 20px;
     border-radius: 12px;
     background-color: #e0e0e0;
@@ -27,28 +33,35 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    position: absolute;
+    transition: transform 0.6s ease-in-out;
 }
 
-/* Align front card above back */
+/* Ensuring card front is on top */
 .card-front {
     z-index: 2;
+    background-color: #f8f8f8;
 }
 
+/* Styling the black strip on the back */
 .card-back {
-    top: 30px;
+    top: 10px;
     z-index: 1;
+    background-color: #d3d3d3;
 }
 
-/* Black strip on back */
 .black-strip {
     width: 100%;
     height: 40px;
     background-color: black;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* Card chip */
+/* Styling card elements */
+.total-amount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .chip-icon {
     width: 40px;
     height: 25px;
@@ -56,7 +69,7 @@
     border-radius: 4px;
 }
 
-/* Label styling */
+/* Input field styling */
 label {
     font-size: 14px;
     font-weight: bold;
@@ -64,7 +77,6 @@ label {
     margin-bottom: 5px;
 }
 
-/* Input fields */
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -73,7 +85,6 @@ input[type="text"], input[type="password"] {
     font-size: 16px;
 }
 
-/* Expiration inputs */
 .expiry-date input {
     width: 45%;
     margin-right: 5%;
@@ -81,13 +92,7 @@ input[type="text"], input[type="password"] {
     text-align: center;
 }
 
-/* CVV field */
-.cvv-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
+/* Submit button styling */
 .submit-button {
     width: 100%;
     padding: 12px;
@@ -97,18 +102,9 @@ input[type="text"], input[type="password"] {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
-    margin-top: 150px;
+    margin-top: 20px;
 }
 
 .submit-button:hover {
     background-color: #45a049;
-}
-
-.card-info {
-    display: flex;
-    justify-content: space-between;
-}
-
-.card-holder, .expiry-date {
-    flex: 1;
 }
