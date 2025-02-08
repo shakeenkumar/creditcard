@@ -1,41 +1,33 @@
-document.getElementById('submit-btn').addEventListener('click', function() {
-    const cardNumber = document.getElementById('card-number').value;
-    const expMonth = document.getElementById('exp-month').value;
-    const expYear = document.getElementById('exp-year').value;
-    const cvc = document.getElementById('cvc').value;
+document.addEventListener("DOMContentLoaded", () => {
+    const cardNumberInput = document.getElementById("card-number");
+    const expiryMMInput = document.getElementById("expiry-mm");
+    const expiryYYInput = document.getElementById("expiry-yy");
+    const cvvInput = document.getElementById("cvv");
 
-    if (!validateCardNumber(cardNumber)) {
-        alert("Invalid card number! Must be 16 digits.");
-        return;
-    }
+    // Format card number input as user types
+    cardNumberInput.addEventListener("input", (e) => {
+        e.target.value = e.target.value
+            .replace(/\D/g, "")                 // Remove all non-digits
+            .replace(/(.{4})/g, "$1 ")          // Insert space every 4 digits
+            .trim();                            // Remove trailing space
+    });
 
-    if (!validateExpiration(expMonth, expYear)) {
-        alert("Invalid expiration date!");
-        return;
-    }
+    // Ensure MM is max 2 digits and valid month
+    expiryMMInput.addEventListener("input", (e) => {
+        e.target.value = e.target.value
+            .replace(/\D/g, "")                 // Remove non-digits
+            .substring(0, 2);                   // Limit to 2 digits
+    });
 
-    if (!validateCVC(cvc)) {
-        alert("Invalid CVC! Must be 3 digits.");
-        return;
-    }
+    // Ensure YY is max 2 digits
+    expiryYYInput.addEventListener("input", (e) => {
+        e.target.value = e.target.value
+            .replace(/\D/g, "")                 // Remove non-digits
+            .substring(0, 2);                   // Limit to 2 digits
+    });
 
-    alert("Payment successful!");
+    // Ensure CVV is 3 digits only
+    cvvInput.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/g, "").substring(0, 3);
+    });
 });
-
-function validateCardNumber(number) {
-    return /^\d{4} \d{4} \d{4} \d{4}$/.test(number);
-}
-
-function validateExpiration(month, year) {
-    const currentYear = new Date().getFullYear() % 100;
-    const currentMonth = new Date().getMonth() + 1;
-    return (
-        /^\d{2}$/.test(month) && /^\d{2}$/.test(year) &&
-        month >= 1 && month <= 12 &&
-        (year > currentYear || (year == currentYear && month >= currentMonth))
-    );
-}
-
-function validateCVC(cvc) {
-    return /^\d{3}$/.test(cvc);
-}
